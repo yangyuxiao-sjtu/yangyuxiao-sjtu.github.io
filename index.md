@@ -8,7 +8,7 @@
 在与基于alphabeta剪枝，启发式搜索并具有算杀功能的五子棋AI的DDL搏斗中
 
 
-##联系:
+## 联系:
 
 我的邮箱:yangyuxiao@sjtu.edu.cn
 
