@@ -30,7 +30,8 @@ Before joining UNC, I earned my bachelor's degree in Computer Science from the J
 
 # 📝 Publications
 - **Return-to-Go Is More Than a Number: Q-Guided Alignment for Return-Conditioned Supervised Learning** (**ICML 2026**)  
-  **Yuxiao Yang**, Weitong Zhang
+  **Yuxiao Yang**, Weitong Zhang  
+  [Paper](https://arxiv.org/abs/2605.29028) · [Code](https://github.com/yangyuxiao-sjtu/Q-Align-DT)
 - **Provable and Practical In-Context Policy Optimization for Self-Improvement** (**ICLR 2026**)  
   Tianrun Yu*, **Yuxiao Yang\***, Zhaoyang Wang, Kaixiang Zhao, Porter Jenkins, Xuchao Zhang, Chetan Bansal, Huaxiu Yao, Weitong Zhang  
   [Paper](https://arxiv.org/pdf/2603.01335) · [Code](https://github.com/UNCSciML/ICPO)
