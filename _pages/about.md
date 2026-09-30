@@ -37,3 +37,29 @@ Before joining UNC, I earned my bachelor's degree in Computer Science from the J
   [Paper](https://arxiv.org/pdf/2603.01335) · [Code](https://github.com/UNCSciML/ICPO)
 
 \* indicates equal contribution.
+
+<span class='anchor' id='-preprints'></span>
+
+# 📄 Preprints
+- **OGLS-SD: On-Policy Self-Distillation with Outcome-Guided Logit Steering for LLM Reasoning**<br>
+  **Yuxiao Yang**, Xiaoyun Wang, Weitong Zhang<br>
+  [Paper](https://arxiv.org/abs/2605.12400)
+- **When EOS Tokens Disagree: Understanding Length Inflation in On-Policy Distillation**<br>
+  **Yuxiao Yang**, Tianrun Yu, Shangzhe Li, Kaixiang Zhao, Xuchao Zhang, Chetan Bansal, Huaxiu Yao, Taylor W. Killian, Weitong Zhang<br>
+  [Paper](https://arxiv.org/abs/2609.20511) · <a href="https://huggingface.co/papers/2609.20511" title="Hugging Face"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face paper" width="18" height="18" style="vertical-align: -0.2em;"><span data-hf-paper-id="2609.20511" style="margin-left: 0.2em;"></span></a>
+- **REVO: Rollout-Efficient Off-Policy Distillation via Variance-Guided Reuse**<br>
+  **Yuxiao Yang**, Shangzhe Li, Tianrun Yu, Kaixiang Zhao, Taylor W. Killian, Weitong Zhang<br>
+  [Paper](https://arxiv.org/abs/2609.37500)
+- **Rethinking Training-Inference Mismatch in LLM Reinforcement Learning: Where It Arises and How to Correct It**<br>
+  Tianrun Yu, Kaixiang Zhao, Shangzhe Li, **Yuxiao Yang**, Porter Jenkins, Weitong Zhang, Taylor W. Killian<br>
+  [Paper](https://arxiv.org/abs/2609.32444)
+- **An RL View of OPD: Least Square Policy Distillation for Sample-Efficient LLM Reasoning**<br>
+  Shangzhe Li, **Yuxiao Yang**, Tianrun Yu, Kaixiang Zhao, Xiaoyun Wang, Taylor W. Killian, Weitong Zhang<br>
+  [Paper](https://arxiv.org/abs/2609.35505)
+
+# 🤝 Academic Service
+- **Conference Reviewer:** AAAI 2027
+- **Journal Reviewer:** Transactions on Machine Learning Research (TMLR)
+
+# 🎓 Teaching
+- **Teaching Assistant:** DATA 521: Foundations of AI, UNC-Chapel Hill (Fall 2026)
