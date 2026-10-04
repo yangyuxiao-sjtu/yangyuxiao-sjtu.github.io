@@ -26,6 +26,9 @@ I am broadly interested in reinforcement learning and large language models.
 
 Before joining UNC, I earned my bachelor's degree in Computer Science from the John Hopcroft Class at Shanghai Jiao Tong University.
 
+# 📋 CV
+[View CV (PDF)]({{ '/files/CV.pdf' | relative_url }})
+
 <span class='anchor' id='-publications'></span>
 
 # 📝 Publications
@@ -58,7 +61,7 @@ Before joining UNC, I earned my bachelor's degree in Computer Science from the J
   [Paper](https://arxiv.org/abs/2609.35505)
 
 # 🤝 Academic Service
-- **Conference Reviewer:** AAAI 2027
+- **Conference Reviewer:** AAAI 2027, ICLR 2027
 - **Journal Reviewer:** Transactions on Machine Learning Research (TMLR)
 
 # 🎓 Teaching

@@ -78,6 +78,27 @@ class HomepagePreprintsTest < Minitest::Test
     assert_equal "2609.20511", link.at_css("[data-hf-paper-id]")["data-hf-paper-id"]
   end
 
+  def test_cv_section_opens_published_pdf
+    headings = @document.css("h1")
+    cv_heading = headings.find { |heading| heading.text.strip == "📋 CV" }
+    publication_heading = headings.find { |heading| heading.text.strip == "📝 Publications" }
+
+    refute_nil cv_heading
+    assert_operator headings.index(cv_heading), :<, headings.index(publication_heading)
+    assert cv_heading.xpath("following-sibling::p[1]/a[@href='/files/CV.pdf']").any?
+
+    pdf = File.join(@destination, "files", "CV.pdf")
+    assert File.file?(pdf), "Expected the CV PDF to be published"
+    assert_equal "%PDF-", File.binread(pdf, 5)
+  end
+
+  def test_cv_navigation_opens_pdf_directly
+    link = @document.at_css("#site-nav a[href='/files/CV.pdf']")
+
+    refute_nil link
+    assert_equal "CV", link.text.strip
+  end
+
   def test_renders_academic_service_and_teaching_below_preprints
     headings = @document.css("h1").map { |heading| heading.text.strip }
     preprint_index = headings.index("📄 Preprints")
