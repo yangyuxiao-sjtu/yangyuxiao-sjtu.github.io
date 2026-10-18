@@ -29,7 +29,7 @@ function loadStatsScript({ element, fetch }) {
   listeners.DOMContentLoaded();
 }
 
-test("shows the latest Hugging Face upvote count beside the icon", async () => {
+test("shows the latest Hugging Face upvote count in parentheses inside the badge", async () => {
   const element = {
     dataset: { hfPaperId: "2609.20511" },
     textContent: ""
@@ -41,13 +41,13 @@ test("shows the latest Hugging Face upvote count beside the icon", async () => {
       assert.equal(url, "https://huggingface.co/api/papers/2609.20511");
       return {
         ok: true,
-        json: async () => ({ upvotes: 109 })
+        json: async () => ({ upvotes: 142 })
       };
     }
   });
 
   await new Promise(setImmediate);
-  assert.equal(element.textContent, "109 upvotes");
+  assert.equal(element.textContent, " (142 upvotes)");
 });
 
 test("keeps the upvote text empty when the API fails", async () => {

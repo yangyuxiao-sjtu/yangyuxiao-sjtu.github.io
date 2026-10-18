@@ -37,7 +37,8 @@ class HomepagePreprintsTest < Minitest::Test
       ["https://arxiv.org/abs/2609.20511", "When EOS Tokens Disagree: Understanding Length Inflation in On-Policy Distillation"],
       ["https://arxiv.org/abs/2609.37500", "REVO: Rollout-Efficient Off-Policy Distillation via Variance-Guided Reuse"],
       ["https://arxiv.org/abs/2609.32444", "Rethinking Training-Inference Mismatch in LLM Reinforcement Learning: Where It Arises and How to Correct It"],
-      ["https://arxiv.org/abs/2609.35505", "An RL View of OPD: Least Square Policy Distillation for Sample-Efficient LLM Reasoning"]
+      ["https://arxiv.org/abs/2609.35505", "An RL View of OPD: Least Square Policy Distillation for Sample-Efficient LLM Reasoning"],
+      ["https://arxiv.org/abs/2610.20572", "Recovering Reliable Supervision via Critique-Guided On-Policy Distillation"]
     ]
 
     expected_papers.each do |url, title|
@@ -54,7 +55,8 @@ class HomepagePreprintsTest < Minitest::Test
       "Yuxiao Yang, Tianrun Yu, Shangzhe Li, Kaixiang Zhao, Xuchao Zhang, Chetan Bansal, Huaxiu Yao, Taylor W. Killian, Weitong Zhang",
       "Yuxiao Yang, Shangzhe Li, Tianrun Yu, Kaixiang Zhao, Taylor W. Killian, Weitong Zhang",
       "Tianrun Yu, Kaixiang Zhao, Shangzhe Li, Yuxiao Yang, Porter Jenkins, Weitong Zhang, Taylor W. Killian",
-      "Shangzhe Li, Yuxiao Yang, Tianrun Yu, Kaixiang Zhao, Xiaoyun Wang, Taylor W. Killian, Weitong Zhang"
+      "Shangzhe Li, Yuxiao Yang, Tianrun Yu, Kaixiang Zhao, Xiaoyun Wang, Taylor W. Killian, Weitong Zhang",
+      "Kaixiang Zhao, Tianrun Yu, Shangzhe Li, Yuxiao Yang, Amanda Hughes, Weitong Zhang, Taylor W. Killian"
     ]
 
     preprint_items.zip(expected_authors).each do |item, authors|
@@ -65,17 +67,29 @@ class HomepagePreprintsTest < Minitest::Test
     assert @document.at_css("a[href='/#-preprints']"), "Expected a Preprints navigation link"
   end
 
-  def test_renders_hugging_face_link_as_an_accessible_icon
-    link = @document.at_css("a[href='https://huggingface.co/papers/2609.20511']")
+  def test_versions_the_hugging_face_stats_script_to_avoid_stale_counts
+    script = @document.css("script[src]").find do |element|
+      element["src"].include?("assets/js/huggingface-paper-stats.js")
+    end
 
-    refute_nil link
-    assert_nil link["aria-label"]
-    assert_equal "Hugging Face", link["title"]
-    assert_equal "", link.text.strip
-    icon = link.at_css("img")
-    assert_equal "Hugging Face paper", icon["alt"]
-    assert_equal "https://huggingface.co/front/assets/huggingface_logo-noborder.svg", icon["src"]
-    assert_equal "2609.20511", link.at_css("[data-hf-paper-id]")["data-hf-paper-id"]
+    refute_nil script
+    assert_match %r{\A/?assets/js/huggingface-paper-stats\.js\?v=\d+\z}, script["src"]
+  end
+
+  def test_uses_the_ranking_badge_as_the_only_hugging_face_paper_link
+    eos_item = @document.xpath("//h1[@id='-preprints']/following-sibling::ul[1]/li").find do |item|
+      item.text.include?("When EOS Tokens Disagree")
+    end
+
+    refute_nil eos_item
+    links = eos_item.css("a[href='https://huggingface.co/papers/2609.20511']")
+    assert_equal 1, links.size
+
+    badge = links.first
+    assert_includes badge["class"].to_s.split, "paper-of-day-badge"
+    assert_nil badge.at_css("img")
+    assert_equal "2609.20511", badge.at_css("[data-hf-paper-id]")["data-hf-paper-id"]
+    assert_nil eos_item.at_css("a[href='https://huggingface.co/papers/date/2026-09-18']")
   end
 
   def test_shows_the_eos_hugging_face_ranking_as_a_title_badge
@@ -84,7 +98,7 @@ class HomepagePreprintsTest < Minitest::Test
     end
 
     refute_nil eos_item
-    ranking_link = eos_item.at_css("a[href='https://huggingface.co/papers/date/2026-09-18']")
+    ranking_link = eos_item.at_css("a[href='https://huggingface.co/papers/2609.20511']")
     refute_nil ranking_link
     assert_includes ranking_link["class"].to_s.split, "paper-of-day-badge"
     assert_equal "🤗 #2 Paper of the Day", ranking_link.text.strip

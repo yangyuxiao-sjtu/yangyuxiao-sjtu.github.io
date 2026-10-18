@@ -24,7 +24,7 @@ Hi, I'm **Yuxiao Yang (杨宇骁)**.
 
 I am a first-year Ph.D. student in Computer Science at the University of North Carolina at Chapel Hill, where I am fortunate to be advised by [Prof. Weitong Zhang](https://zeroweight.github.io/).
 
-I am broadly interested in reinforcement learning and large language models.
+My research focuses on reinforcement learning and post-training for large language models, particularly policy optimization, self-improvement, and knowledge distillation for reasoning.
 
 Before joining UNC, I earned my bachelor's degree in Computer Science from the John Hopcroft Class at Shanghai Jiao Tong University.
 
@@ -55,9 +55,9 @@ Before joining UNC, I earned my bachelor's degree in Computer Science from the J
 - **OGLS-SD: On-Policy Self-Distillation with Outcome-Guided Logit Steering for LLM Reasoning**<br>
   **Yuxiao Yang**, Xiaoyun Wang, Weitong Zhang<br>
   [Paper](https://arxiv.org/abs/2605.12400)
-- **When EOS Tokens Disagree: Understanding Length Inflation in On-Policy Distillation** <a class="paper-of-day-badge" href="https://huggingface.co/papers/date/2026-09-18" title="Hugging Face Paper of the Day, #2 on Sep 18, 2026"><span aria-hidden="true">🤗</span> <span>#2 Paper of the Day</span></a><br>
+- **When EOS Tokens Disagree: Understanding Length Inflation in On-Policy Distillation** <a class="paper-of-day-badge" href="https://huggingface.co/papers/2609.20511" title="Hugging Face Paper of the Day, #2 on Sep 18, 2026"><span aria-hidden="true">🤗</span> <span>#2 Paper of the Day</span><span data-hf-paper-id="2609.20511"></span></a><br>
   **Yuxiao Yang**, Tianrun Yu, Shangzhe Li, Kaixiang Zhao, Xuchao Zhang, Chetan Bansal, Huaxiu Yao, Taylor W. Killian, Weitong Zhang<br>
-  [Paper](https://arxiv.org/abs/2609.20511) · <a href="https://huggingface.co/papers/2609.20511" title="Hugging Face"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face paper" width="18" height="18" style="vertical-align: -0.2em;"><span data-hf-paper-id="2609.20511" style="margin-left: 0.2em;"></span></a>
+  [Paper](https://arxiv.org/abs/2609.20511)
 - **REVO: Rollout-Efficient Off-Policy Distillation via Variance-Guided Reuse**<br>
   **Yuxiao Yang**, Shangzhe Li, Tianrun Yu, Kaixiang Zhao, Taylor W. Killian, Weitong Zhang<br>
   [Paper](https://arxiv.org/abs/2609.37500)
@@ -67,6 +67,9 @@ Before joining UNC, I earned my bachelor's degree in Computer Science from the J
 - **An RL View of OPD: Least Square Policy Distillation for Sample-Efficient LLM Reasoning**<br>
   Shangzhe Li, **Yuxiao Yang**, Tianrun Yu, Kaixiang Zhao, Xiaoyun Wang, Taylor W. Killian, Weitong Zhang<br>
   [Paper](https://arxiv.org/abs/2609.35505)
+- **Recovering Reliable Supervision via Critique-Guided On-Policy Distillation**<br>
+  Kaixiang Zhao, Tianrun Yu, Shangzhe Li, **Yuxiao Yang**, Amanda Hughes, Weitong Zhang, Taylor W. Killian<br>
+  [Paper](https://arxiv.org/abs/2610.20572)
 
 # 🤝 Academic Service
 - **Conference Reviewer:** AAAI 2027, ICLR 2027

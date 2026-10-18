@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then(function (paper) {
         if (Number.isFinite(paper.upvotes)) {
-          element.textContent = paper.upvotes + " upvotes";
+          element.textContent = " (" + paper.upvotes + " upvotes)";
         }
       })
       .catch(function () {
-        // Keep the plain Hugging Face link when live stats are unavailable.
+        // Keep the ranking badge without a count when live stats are unavailable.
       });
   });
 });
