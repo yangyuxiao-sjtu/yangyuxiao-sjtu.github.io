@@ -48,6 +48,40 @@
   font-size: $type-size-4;
 }
 
+.about-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+
+  @include breakpoint($medium) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+    gap: 2em;
+    align-items: start;
+  }
+}
+
+.about-intro__text {
+  min-width: 0;
+}
+
+.about-intro__portrait {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+
+  @include breakpoint($medium) {
+    margin: 0;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+}
+
 .page__content {
   #about-me{
     margin-top: -10em;
@@ -92,6 +126,30 @@
       img {
         box-shadow: 0 0 10px rgba(#000, 0.25);
       }
+    }
+  }
+
+  a.paper-of-day-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    margin-left: 0.35em;
+    padding: 0.12em 0.5em;
+    border: 1px solid #eeb323;
+    border-radius: 6px;
+    background: #fff7df;
+    color: #704500;
+    font-size: 0.82em;
+    font-weight: 700;
+    line-height: 1.35;
+    text-decoration: none;
+    vertical-align: 0.08em;
+    white-space: nowrap;
+
+    &:hover {
+      background: #ffefbd;
+      color: #5f3b00;
+      text-decoration: none;
     }
   }
 

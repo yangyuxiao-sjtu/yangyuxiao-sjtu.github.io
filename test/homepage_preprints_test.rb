@@ -78,6 +78,21 @@ class HomepagePreprintsTest < Minitest::Test
     assert_equal "2609.20511", link.at_css("[data-hf-paper-id]")["data-hf-paper-id"]
   end
 
+  def test_shows_the_eos_hugging_face_ranking_as_a_title_badge
+    eos_item = @document.xpath("//h1[@id='-preprints']/following-sibling::ul[1]/li").find do |item|
+      item.text.include?("When EOS Tokens Disagree")
+    end
+
+    refute_nil eos_item
+    ranking_link = eos_item.at_css("a[href='https://huggingface.co/papers/date/2026-09-18']")
+    refute_nil ranking_link
+    assert_includes ranking_link["class"].to_s.split, "paper-of-day-badge"
+    assert_equal "🤗 #2 Paper of the Day", ranking_link.text.strip
+    assert_equal "Hugging Face Paper of the Day, #2 on Sep 18, 2026", ranking_link["title"]
+    assert_equal "strong", ranking_link.previous_element.name
+    assert_equal "br", ranking_link.next_element.name
+  end
+
   def test_cv_section_opens_published_pdf
     headings = @document.css("h1")
     cv_heading = headings.find { |heading| heading.text.strip == "📋 CV" }
@@ -90,6 +105,29 @@ class HomepagePreprintsTest < Minitest::Test
     pdf = File.join(@destination, "files", "CV.pdf")
     assert File.file?(pdf), "Expected the CV PDF to be published"
     assert_equal "%PDF-", File.binread(pdf, 5)
+  end
+
+  def test_renders_environmental_portrait_beside_the_homepage_introduction
+    intro = @document.at_css(".about-intro")
+
+    refute_nil intro
+    assert intro.at_css(".about-intro__text")
+
+    portrait = intro.at_css(".about-intro__portrait img")
+    refute_nil portrait
+    assert_equal "/images/self-pic.jpg", portrait["src"]
+    assert_equal "Yuxiao Yang in New York City", portrait["alt"]
+    assert_equal "1000", portrait["width"]
+    assert_equal "750", portrait["height"]
+    assert File.file?(File.join(@destination, "images", "self-pic.jpg"))
+  end
+
+  def test_keeps_the_illustrated_avatar_in_the_author_profile
+    avatar = @document.at_css(".profile_box .author__avatar img")
+
+    refute_nil avatar
+    assert_equal "images/pic.jpg", avatar["src"]
+    assert_equal "Yuxiao Yang", avatar["alt"]
   end
 
   def test_cv_navigation_opens_pdf_directly
